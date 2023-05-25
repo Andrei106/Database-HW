@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family:"Times New Roman";
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: left bottom;
+    background-color: rgb(225,213,196)
+}
+
+/* Style tab links */
+.tablink {
+	font-weight: bold;
+	font-family: "Times New Roman";
+    background-color: #557;
+    color: azure;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 12px;
+    font-size: 18px;
+    width: 14.26%;
+}
+
+.tablink:hover {
+    background-color: #579;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: rgb(80,63,52);
+    padding: 100px 20px;
+    height: 100%;
+}
+
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    border-color: rgb(80,63,52);
+    text-align: center;
+}
+th, td {
+    padding: 10px;
+}
+
+.radiotext {
+    margin: 10px 10px 0px 0px;
+}
+input, select, textarea{
+    color: rgb(80,63,52);
+}
+.button
+{
+background-color:rgb(99,78,64);
+color:rgb(80,63,52);
+}
+</style>
+
+</head>
+<body>
+        <a href="categorie"><button class="tablink" style="background:rgb(99,78,64); color: white">Categorii</button></a>
+    <a href="tip"><button class="tablink" style="background:rgb(99,78,64); color: white">Tipuri</button></a>
+    <a href="producator"><button class="tablink" style="background:rgb(99,78,64); color: white">Producatori</button></a>
+    <a href="oferta"><button class="tablink" style="background:rgb(80,63,52); color: white">Oferte</button></a>
+    <a href="instrumente"><button class="tablink" style="background:rgb(99,78,64); color: white">Instrumente</button></a>
+    <a href="client"><button class="tablink" style="background:rgb(99,78,64); color: white">Clienti</button></a>
+    <a href="comenzi"><button class="tablink" style="background:rgb(99,78,64); color: white">Comenzi</button></a>
+    <div  class="tabcontent">
+	<center>
+		<h1 >Editeaza oferta</h1>
+      <br><br>
+      <form class="was-validated" method="POST" action="/edit_oferta">
+          <input name="id"  value="{{id}}" hidden>
+
+          Data de inceput:
+          <div class="col-6 col-sm-3"><input class="form-control" id="start" name="start_date" type="date" value="{{start_date}}" required></div>
+          Data de sfarsit:
+          <div class="col-6 col-sm-3"><input class="form-control" id="end" name="end_date" type="date" value="{{end_date}}" required></div>
+          Discount:
+          <div class="col-6 col-sm-3"><input class="form-control" name="discount" type="number" value="{{discount}}" min="1"  max="99" required></div>
+
+
+
+        <button class="btn btn-outline-dark" id="edit" type="submit" >Editeaza</button>
+
+      </form>
+  </center>
+</div>
+
+<script>
+(function () {
+   document.getElementById("edit").onclick = function(event) {
+   var end = document.getElementById("end")
+   var start = document.getElementById("start")
+
+    if(end.value!=''&& start.value!='' ){
+
+    if (end.value == start.value ){
+    alert('Data de inceput trebuie nu poate fi egala cu data de sfarsit !');
+    event.preventDefault();}
+
+    if (end.value < start.value ){
+    alert('Data de sfarsit trebuie sa fie mai mare decat data de inceput !');
+    event.preventDefault();}
+
+
+    let currentDate = new Date().toJSON().slice(0, 10);
+    if (start.value <= currentDate ){
+    alert('Data de inceput trebuie sa fie mai mare decat data curenta !');
+    event.preventDefault();}
+
+    if (end.value <= currentDate ){
+    alert('Data de sfarsit trebuie sa fie mai mare decat data curenta !');
+    event.preventDefault();}
+    }
+
+    };
+} )();
+</script>
+</body>
+
+
+</html>
+

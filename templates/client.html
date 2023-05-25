@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style>
+
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family:"Times New Roman";
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: left bottom;
+    background-color: rgba(255,241,196,255)
+}
+
+/* Style tab links */
+.tablink {
+	font-weight: bold;
+	font-family: "Times New Roman";
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 12px;
+    font-size: 18px;
+    width: 14.26%;
+}
+
+.tablink:hover {
+    background-color: #579;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+
+    background-image: url("https://cdn.dribbble.com/users/49272/screenshots/3680646/media/39338f08e9dc7a1443e28d6f4fa32157.gif");
+     background-repeat: no-repeat;
+    padding: 100px 20px;
+    height: 70%;
+
+}
+
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    border-color: rgb(80,63,52);
+    text-align: center;
+}
+th, td {
+    padding: 10px;
+}
+
+input, select, textarea{
+    color: rgb(80,63,52);
+}
+
+</style>
+</head>
+<body>
+    <a href="categorie"><button class="tablink" style="background:rgb(99,78,64); color: white">Categorii</button></a>
+    <a href="tip"><button class="tablink" style="background:rgb(99,78,64); color: white">Tipuri</button></a>
+    <a href="producator"><button class="tablink" style="background:rgb(99,78,64); color: white">Producatori</button></a>
+    <a href="oferta"><button class="tablink" style="background:rgb(99,78,64); color: white">Oferte</button></a>
+    <a href="instrumente"><button class="tablink" style="background:rgb(99,78,64); color: white">Instrumente</button></a>
+    <a href="client"><button class="tablink" style="background:rgb(80,63,52); color: white">Clienti</button></a>
+    <a href="comenzi"><button class="tablink" style="background:rgb(99,78,64); color: white">Comenzi</button></a>
+    <div  class="tabcontent">
+	<center>
+  		<h1 >ADAUGA</h1>
+
+      <form class="was-validated" method="POST" action="/add_client">
+
+           Nume:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="last_name" type="text"  placeholder="ex. Popescu" pattern="[a-zA-Z\s]+" required>
+           </div>
+           Prenume:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="first_name" type="text"  placeholder="ex. Alex" pattern="[a-zA-Z\s]+" required>
+           </div>
+           Email:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="email" type="email"  placeholder="ex. x@y.z"  pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$' required>
+           </div>
+           Numar de telefon:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="phone_number" type="tel"  placeholder="ex. 1234567890" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+           </div>
+           Tara:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="country" type="text"  placeholder="ex. Romania" pattern="[a-zA-Z\s]+" required>
+           </div>
+           Oras:
+           <div class="col-6 col-sm-3">
+               <input class="form-control " name="city" type="text"  placeholder="ex. Iasi" pattern="[a-zA-Z\s]+" required>
+           </div>
+
+
+          <br>
+        <button class="btn btn-outline-dark" type="submit">Adauga</button>
+      </form>
+  </center>
+</div>
+
+<div id="clients" >
+	<center>
+		<h2 >Clienti</h2>
+      <br>
+  		<table style="width:70%">
+  			<tr>
+    			<th>ID</th>
+    			<th>Nume</th>
+                <th>Prenume</th>
+                <th>Email</th>
+                <th>Numar de telefon</th>
+                <th>Tara</th>
+                <th>Oras</th>
+
+  			</tr>
+        {% for client in client %}
+  			<tr>
+    			<td>{{client["id"]}}</td>
+    			<td>{{client["last_name"]}}</td>
+                <td>{{client["first_name"]}}</td>
+                <td>{{client["email"]}}</td>
+    			<td>{{client["phone_number"]}}</td>
+                <td>{{client["country"]}}</td>
+                <td>{{client["city"]}}</td>
+
+
+				<td>
+					<form  method="POST" action="/get_client">
+                    <button type="submit" name="id" value="{{client['id']}}" class="btn btn-outline-dark">Editeaza</button>
+                    </form>
+                <form class="was-validated" method="POST" action="/del_client">
+                  <button type="submit" name="id" value="{{client['id']}}" class="btn btn-outline-dark">Sterge</button>
+                </form>
+
+                </td>
+
+  			</tr>
+  			{% endfor %}
+		  </table>
+      <br><br><br>
+  </center>
+</div>
+
+</body>
+</html>

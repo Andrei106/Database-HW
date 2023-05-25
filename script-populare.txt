@@ -1,0 +1,431 @@
+
+--Categoria
+--desc category;
+insert into category(category_name) values ('Instrumente cu corzi');--id 1
+insert into category(category_name) values ('Instrumente cu clape');--id 2
+insert into category(category_name) values ('Instrumente de suflat');--id 3
+insert into category(category_name) values ('Instrumente de percutie');--id 4
+
+--select * from category;
+
+--Tipuri
+
+--1 Corzi
+--desc type;
+insert into type(type_name,category_id) values ('Chitare',1);--1
+insert into type(type_name,category_id) values ('Viori',1);--2
+insert into type(type_name,category_id) values ('Harpe',1);--3
+insert into type(type_name,category_id) values ('Violoncele',1);--4
+insert into type(type_name,category_id) values ('Contrabasuri',1);--5
+
+
+--2 Clape
+
+insert into type(type_name,category_id) values ('Sintetizatoare',2);--6
+insert into type(type_name,category_id) values ('Piane de concert',2);--7
+insert into type(type_name,category_id) values ('Piane digitale',2);--8
+insert into type(type_name,category_id) values ('Orgi clasice',2);--9
+insert into type(type_name,category_id) values ('Orgi electrice',2);--10
+insert into type(type_name,category_id) values ('Accordeoane',2);--11
+
+
+--3 Suflat
+insert into type(type_name,category_id) values ('Saxofoane',3);--12
+insert into type(type_name,category_id) values ('Clarinete',3);--13
+insert into type(type_name,category_id) values ('Trompete',3);--14
+insert into type(type_name,category_id) values ('Tube',3);--15
+insert into type(type_name,category_id) values ('Tromboane',3);--16
+insert into type(type_name,category_id) values ('Fluiere',3);--17
+
+--4 Percutie
+
+insert into type(type_name,category_id) values ('Tobe Acustice',4);--18
+insert into type(type_name,category_id) values ('Tobe Electronice',4);--19
+insert into type(type_name,category_id) values ('Maracasuri',4);--20
+insert into type(type_name,category_id) values ('Timbales',4);--21
+insert into type(type_name,category_id) values ('Congasuri',4);--22
+insert into type(type_name,category_id) values ('Djembeuri',4);--23
+
+
+
+--select * from type;
+
+--Producatori
+
+--desc manufacturer;
+
+--Corzi
+insert into manufacturer(manufacturer_name,country) values ('Baton Rouge','Germania');--1
+insert into manufacturer(manufacturer_name,country) values ('Ibanez','China');--2
+insert into manufacturer(manufacturer_name,country) values ('Harley Benton','Germania');--3
+
+--Clape
+insert into manufacturer(manufacturer_name,country) values ('Kawai','Japonia');--4
+insert into manufacturer(manufacturer_name,country) values ('Roland','Japonia');--5
+insert into manufacturer(manufacturer_name,country) values ('Casio','Japonia');--6
+
+--Suflat
+insert into manufacturer(manufacturer_name,country) values ('Vandoren','Franta');--7
+insert into manufacturer(manufacturer_name,country) values ('Thomann','Germania');--8
+insert into manufacturer(manufacturer_name,country) values ('Mollenhauer','Germania');--9
+
+--Percutie
+insert into manufacturer(manufacturer_name,country) values ('Pearl','Japonia');--10
+insert into manufacturer(manufacturer_name,country) values ('YAMAHA','Japonia');--11
+insert into manufacturer(manufacturer_name,country) values ('MAPEX','Taiwan');--12
+
+--select * from manufacturer;
+
+
+
+--Oferta
+--desc oferta;
+insert into oferta(start_date,end_date,discount) values('20-DEC-2023','25-DEC-2023',5);--1
+insert into oferta(start_date,end_date,discount) values('24-JUN-2023','25-JUL-2023',10);--2
+insert into oferta(start_date,end_date,discount) values('20-DEC-2023','25-DEC-2023',15);--3
+insert into oferta(start_date,end_date,discount) values('24-MAY-2023','25-MAY-2023',20);--4
+insert into oferta(start_date,end_date,discount) values('20-FEB-2023','25-FEB-2023',25);--4
+insert into oferta(start_date,end_date,discount) values('24-JAN-2023','25-JAN-2023',30);--5
+--select * from oferta;
+
+
+--Instrumente
+--desc instrument;
+
+
+--Corzi
+
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Baton Rouge X6C/AC-AF','Descriere',350,27000,null,1,1);--1
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Ibanez JGM5-BSN','Descriere 2',5000,9800,null,2,1);--2
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Harley Benton HBV 870BK 4/4 Violin','Descriere',600,17000,null,3,2);--3
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Harley Benton HBV 880SA Semi Acoustic RD','Descriere',1000,13000,null,3,2);--4
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Lyon and Healy Prelude 40 Lever Harp NA','Descriere',75600,5500,null,2,3);--5
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Salvi SALGAA-MPS Gaia Mahogany','Descriere',88800,4000,null,3,3);--6
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Stentor SR1102 Cello Student I 4/4','Descriere',7000,25,null,1,4);--7
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann Gothic Black Cello 4/4','Descriere',8000,25,null,2,4);--8
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Meister Rubner Double Bass No.68B 3/4','Descriere',45000,25,null,3,5);--9
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann 111SN 3/4 Double Bass','Descriere',38000,25,null,1,5);--10
+
+--insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id,category_id) values('Baton Rouge fara oferta','Descriere 1',311,25,NULL,1,1,1);--3
+--Clape
+
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Roland System-8','Descriere',4400,15000,null,4,6);--11
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Roland JD-XA','Descriere',6000,25000,null,5,6);--12
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Kawai GL 30 ATX 4 E/P Grand Piano','Descriere',40000,8000,null,6,7);--13
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Yamaha GB1 K Black Polished','Descriere',65000,5000,null,4,7);--14
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann DP-30 RW','Descriere',500,25000,null,5,8);--15
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('FUNKEY DP-88 II','Descriere',250,40000,null,6,8);--16
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Viscount Cantorum Trio','Descriere',5000,7000,null,4,9);--17
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Viscount Unico CLV 4','Descriere',8000,9500,null,5,9);--18
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Vox Continental 73 Keyboard Black','Descriere',3000,12000,null,6,10);--19
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Clavia Nord Electro 6D 73','Descriere',4500,14000,null,4,10);--20
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Hohner Bravo II 60 ','Descriere',1250,10000,null,5,11);--21
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Weltmeister Topas 37/96/III/7/3','Descriere',8750,12000,null,6,11);--22
+
+--Suflat
+
+
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Yanagisawa T-WO1 Tenor Sax','Descriere',7000,6000,null,7,12);--23
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Keilwerth SX 90R "Shadow" Tenor Sax','Descriere',12050,7000,null,8,12);--24
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Startone SCL- 65 Bb- Clarinet ','Descriere',300,25000,null,9,13);--25
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann CL-17BB CG Bb- Clarinet Boehm','Descriere',700,12000,null,7,13);--26
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('B and S 3005 WTR-L Trumpet','Descriere',1350,9000,null,8,14);--27
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Gerd Dowids BZ Series GL 72 Bb-Trumpet','Descriere',3200,13000,null,9,14);--28
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann Grand Fifty C- Tuba','Descriere',3000,6500,null,7,15);--29
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Melton 4260-L F- Tuba','Descriere',12000,7000,null,8,15);--30
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Thomann Blacky Bb-Tenor Trombone','Descriere',400,8000,null,9,16);--31
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('B and S MS14KN-L Bb/F-Trombone','Descriere',4600,9000,null,7,16);--32
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Moeck 1025 Flauto 1 Soprano Recorder','Descriere',60,50000,null,8,17);--33
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Küng 2601 Superio Bass Recorder','Descriere',1100,65000,null,9,17);--34
+
+--Percutie
+
+
+
+
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Yamaha Stage Custom Stand. CR- Bundle','Descriere',1200,12000,null,10,18);--35
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('DW Satin Oil Set Regal Blue Gold','Descriere',10000,10000,null,11,18);--36
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Millenium HD-120 E-Drum Set','Descriere',500,25000,null,12,19);--37
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Millenium MPS-850 E-Drum Set','Descriere',700,50000,null,10,19);--38
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Sonor L2693 Maracas','Descriere',30,40000,null,11,20);--39
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('LP 395 Maracas Rawhide','Descriere',75,25000,null,12,20);--40
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Millenium RT6810','Descriere',140,7000,null,10,21);--41
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('LP 257-KP Timbales Karl Perazzo','Descriere',600,9500,null,11,21);--42
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Meinl MC100WR Conga Wine Red','Descriere',40,6000,null,12,22);--43
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Meinl HC812NT Headliner Conga Natura','Descriere',500,3000,null,10,22);--44
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Meinl ADJ10-SI Alpine Djembe Simbra','Descriere',150,6500,null,11,23);--45
+insert into instrument(instrument_name,description,price,stock,oferta_id,manufacturer_id,type_id) values('Terre Professional Player V1 Djembe Mahogany','Descriere',200,4500,null,12,23);--46
+
+--select * from instrument;
+
+
+--Client
+--desc client;
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Alex','Popescu','alex_popescu@gmail.com','Romania','1234567890','Iasi');--1
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Cristian','Johnson','cristian_johnson@gmail.com','Germania','1352775345','Berlin');--2
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Leo','Garcia','leo_garcia@gmail.com','Canada','3674812414','Toronto');--3
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Steve','Miller','steve_miller@gmail.com','USA','2746001783','New York');--4
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Max','Williams','max_williams@gmail.com','Argentina','7873512461','Salta');--5
+insert into client(first_name,last_name,email,country,phone_number,city) values ('John','Smith','john_smith2@gmail.com','USA','5553472134','San Diego');--6
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Jack','Jones','jack_jones@gmail.com','USA','6654361296','Chicago');--7
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Thomas','Brown','thomas_brown3@gmail.com','Mexico','8726766545','Durango');--8
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Alexandr','King','alexandr_king10@gmail.com','Rusia','6665478984','Vologda');--9
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Gabriel','Charles','gabriel_charles@gmail.com','Franta','3321678301','Paris');--10
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Marco','Luigi','marco_luigi@gmail.com','Italia','6642899012','Roma');--11
+insert into client(first_name,last_name,email,country,phone_number,city) values ('Lucas','Martin','lucas_martin22@gmail.com','Spania','1115236789','Madrid');--12
+--select * from client;
+
+--Orders
+--desc orders;
+insert into orders(client_id,status) values(1,'In process');--1
+insert into orders(client_id,status) values(1,'In process');--2
+insert into orders(client_id,status) values(2,'Delivered');--3
+insert into orders(client_id,status) values(2,'Delivered');--4
+insert into orders(client_id,status) values(3,'In process');--5
+insert into orders(client_id,status) values(3,'In process');--6
+insert into orders(client_id,status) values(4,'Delivered');--7
+insert into orders(client_id,status) values(4,'Delivered');--8
+insert into orders(client_id,status) values(5,'Delivered');--9
+insert into orders(client_id,status) values(5,'Delivered');--10
+insert into orders(client_id,status) values(6,'Delivered');--11
+insert into orders(client_id,status) values(6,'Delivered');--12
+insert into orders(client_id,status) values(7,'In process');--13
+insert into orders(client_id,status) values(7,'In process');--14
+insert into orders(client_id,status) values(8,'Delivered');--15
+insert into orders(client_id,status) values(8,'In process');--16
+insert into orders(client_id,status) values(8,'In process');--17
+insert into orders(client_id,status) values(9,'Delivered');--18
+insert into orders(client_id,status) values(9,'Returned');--19
+insert into orders(client_id,status) values(9,'Delivered');--20
+insert into orders(client_id,status) values(10,'In process');--21
+insert into orders(client_id,status) values(10,'Returned');--22
+insert into orders(client_id,status) values(10,'In process');--23
+insert into orders(client_id,status) values(11,'Returned');--24
+insert into orders(client_id,status) values(11,'In process');--25
+insert into orders(client_id,status) values(12,'Delivered');--26
+insert into orders(client_id,status) values(12,'In process');--27
+
+--select * from orders;
+
+--order_instrument
+--desc order_instrument;
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (1,13,2);
+
+update instrument
+set stock = (select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id =1)
+where instrument_id =13;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (2,2,1);
+
+update instrument
+set stock =( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =2)
+where instrument_id =2;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (3,1,5);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id   =3)
+where instrument_id =1;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (4,23,2);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =4)
+where instrument_id =23;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (5,6,22);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id   =5)
+where instrument_id =6;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (6,18,22);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =6)
+where instrument_id =18;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (7,9,5);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =7)
+where instrument_id =9;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (8,12,8);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =8)
+where instrument_id =12;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (9,13,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =9)
+where instrument_id =13;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (10,8,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =10)
+where instrument_id =8;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (11,23,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =11)
+where instrument_id =23;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (12,27,7);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =12)
+where instrument_id =27;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (13,11,3);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =13)
+where instrument_id =11;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (14,28,2);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =14)
+where instrument_id =28;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (15,35,2);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =15)
+where instrument_id =35;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (16,40,6);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =16)
+where instrument_id =40;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (17,2,4);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =17)
+where instrument_id =2;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (18,6,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =18)
+where instrument_id =6;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (19,11,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =19)
+where instrument_id =11;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (20,33,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =20)
+where instrument_id =33;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (21,41,6);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =21)
+where instrument_id =41;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (22,15,3);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =22)
+where instrument_id =15;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (23,29,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =23)
+where instrument_id =29;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (24,46,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =24)
+where instrument_id =46;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (25,11,1);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =25)
+where instrument_id =11;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (26,41,7);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =26)
+where instrument_id =41;
+
+insert into order_instrument(orders_order_id,instrument_instrument_id,quantity)
+values (27,3,3);
+
+update instrument
+set stock = ( select i.stock - ord.quantity from instrument i,order_instrument ord
+                where i.instrument_id=ord.instrument_instrument_id and ord.orders_order_id  =27)
+where instrument_id =3;
+
+
+--select * from order_instrument;
+
+
